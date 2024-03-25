@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<head>
+  <script src="/assets/jquery.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet"> 
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+<style>
+	input {
+		font-size: 22px;
+	}
+	
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #232;
+}
+div {
+  font-family: 'Ephesis', cursive;
+  height: 250px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'Bungee Spice', sans-serif;
+
+  text-align: center;
+  font-size: 75px;
+  color: #595;
+  margin: 60px 0 0 0;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  color: #bbbbbb;
+  margin: 0px 0 70px 0;
+  color: green;
+}
+p {
+  font-family: 'Ephesis', cursive;
+  
+  color: orange;
+  background: black;
+  background: linear-gradient(bottom, rgba(255,0,0,1), rgba(800,255,255,.4));
+  background: -webkit-linear-gradient(bottom, rgba(255,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url(https://kitchenatics.com/wp-content/uploads/2020/09/Cheese-pizza-1.jpg);
+}
+.second{
+  background-image: url("https://www.tasteofhome.com/wp-content/uploads/2018/01/Crispy-Fried-Chicken_EXPS_TOHJJ22_6445_DR-_02_03_11b.jpg");
+}
+.dessert{
+  background-image: url("https://laneandgreyfare.com/wp-content/uploads/2022/02/Strawberry-Red-Velvet-Cake-1.jpg");
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Falassa's Resturant!</h1>
+<h2>a New York City eatery</h2>
+<div class="first">
+	<input type="number" min="0" style="width: 50px">
+  <p>cheese pizza <span class="price">$14</span><br />
+  <small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p>
+</div>
+
+<div class="second">
+	<input type="number" min="0" style="width: 50px">
+  <p>fried chicken <span class="price">$22</span><br />
+  <small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p>
+</div>
+  
+<div class="dessert">
+	<input type="number" min="0" style="width: 50px">
+  <p>red velvet <span class="price">$8</span><br />
+  <small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p>
+</div>
+
+<br><br>
+   <input id="Name" type="name" placeholder="User name">
+	<input id="Email" type="email" placeholder="Your email">
+	<input id="submit" type="submit">
+<br><br>
+
+
+
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+  
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAdWvX-hWqL4tTRAq7dmO1pVRcvYV0wp6M",
+    authDomain: "falassasissokoproject3.firebaseapp.com",
+    databaseURL: "https://falassasissokoproject3-default-rtdb.firebaseio.com",
+    projectId: "falassasissokoproject3",
+    storageBucket: "falassasissokoproject3.appspot.com",
+    messagingSenderId: "90509267334",
+    appId: "1:90509267334:web:a098dfcc98e52d57d6dc07"
+  };
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+</script>
+
+
+
+</body>
